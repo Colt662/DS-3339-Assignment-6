@@ -146,6 +146,36 @@ def company_directory():
         else:
             print("❌ Invalid option. Try again.")
 
+def test_cases():
+    company_directory = TeamTree()
+    print("Before setting root:")
+    company_directory.insert("Jordan", "Taylor", "right")
+    company_directory.insert("Jordan", "Riley", "left")
+    company_directory.insert("Riley", "Dana", "right")
+    company_directory.insert("Riley", "Morgan", "left")
+    company_directory.print_tree()
+
+    print("Normal behavior:")
+    company_directory.root = EmployeeNode("Jordan")
+    company_directory.insert("Jordan", "Taylor", "right")
+    company_directory.insert("Jordan", "Riley", "left")
+    company_directory.insert("Riley", "Dana", "right")
+    company_directory.insert("Riley", "Morgan", "left")
+    company_directory.print_tree()
+
+    print("Slots already occupied:")
+    company_directory.insert("Jordan", "Taylor", "right")
+    company_directory.insert("Jordan", "Riley", "left")
+    company_directory.insert("Riley", "Dana", "right")
+    company_directory.insert("Riley", "Morgan", "left")
+    company_directory.print_tree()
+
+    print("Manager does not exist:")
+    company_directory.insert("DNE", "Taylor", "right")
+    company_directory.insert("DNE", "Riley", "left")
+    company_directory.insert("DNE", "Dana", "right")
+    company_directory.insert("DNE", "Morgan", "left")
 
 if __name__ == "__main__":
+    #test_cases()
     company_directory()
