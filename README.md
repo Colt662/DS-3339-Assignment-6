@@ -1,5 +1,13 @@
 # Team Management Tree
 
+## Origin
+
+This project was made for a Data Strucutres class and is intended to showcase the use of trees.
+
+A desgin memo/reflection is contained at the bottom of [tree_builder.py](tree_builder.py).
+
+## Original Instructions 
+
 You've joined the internal tools team at a growing tech company. The leadership team wants an interactive tool to visualize how employees report to one another. Some employees manage others, and some only report to a single manager. The company wants a structure that can grow as the team scales.
 
 Instead of using a flat list or table, you're tasked with building a **custom binary tree** that represents this hierarchy. Each employee can have up to two direct reports, and you’ll need to build this system using recursive insertion and traversal.
