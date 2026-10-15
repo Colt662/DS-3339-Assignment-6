@@ -111,7 +111,9 @@ class TeamTree:
 def company_directory():
     tree = TeamTree()
 
-    while True:
+    choice = ""
+
+    while choice != "4":
         print("\n📋 Team Management Menu")
         print("1. Add Team Lead (root)")
         print("2. Add Employee")
@@ -143,3 +145,7 @@ def company_directory():
             break
         else:
             print("❌ Invalid option. Try again.")
+
+
+if __name__ == "__main__":
+    company_directory()
