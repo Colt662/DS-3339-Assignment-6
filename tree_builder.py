@@ -24,12 +24,82 @@ class TeamTree:
 
     '''
     
-    # Delete this line and implement the class below
-    pass
+    def __init__(self):
+        self.root = None
 
-# Test your code here
+    def insert(self, manager_name, employee_name, side, current_node=None):
+        if self.root == None:
+            print("Set team manager to begin adding other employees.")
+            return
 
 
+        if current_node == None:
+            current_node = self.root
+
+
+        if manager_name == current_node.name:
+            if side.lower().strip() == "left":
+                if current_node.left == None:
+                    current_node.left = EmployeeNode(employee_name)
+                    print(f'{employee_name} added to the {side.upper()} of {manager_name}.')
+                    return True #manager found
+
+                else:
+                    print(f'{manager_name} already has an employee on their {side.upper()} side. Try the other side.')
+                    return True #manager found
+
+
+            elif side.lower().strip() == "right":
+                if current_node.right == None:
+                    current_node.right = EmployeeNode(employee_name)
+                    print(f'{employee_name} added to the {side.upper()} of {manager_name}.')
+                    return True #manager found
+
+                else:
+                    print(f'{manager_name} already has an employee on their {side.upper()} side. Try the other side.')
+                    return True #manager found 
+
+            else:
+                print("The selected manager already has 2 direct subordinates.")
+                return True #manager found
+
+
+
+        else:
+            if current_node.left != None:
+                if self.insert(manager_name, employee_name, side, current_node.left):
+                    return True #manager found down this side, no need to keep checking
+
+            
+            if current_node.right != None:
+                if self.insert(manager_name, employee_name, side, current_node.right):
+                    return True #manager found
+
+
+            if current_node == self.root: #Implied based on the fact a return statment hasn't fired: the manager was not found anywhere in the tree
+                print(f'No manager with the name {manager_name} was found. Try checking the spelling.')
+                return
+            return False #Implied based on the fact a return statment hasn't fired: the manager was not found anywhere in the tree
+
+
+
+
+
+    def print_tree(self, node=None, level=0):
+        if self.root == None:
+            print("Tree is empty")
+            return
+
+
+        if node == None and level == 0:
+            node = self.root
+
+        print(f'{"":{level*2}}- {node.name}')
+        if node.left != None:
+            self.print_tree(node.left, level + 1)
+
+        if node.right != None:
+            self.print_tree(node.right, level + 1)
 
 
 
