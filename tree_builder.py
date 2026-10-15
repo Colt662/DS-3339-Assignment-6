@@ -179,3 +179,27 @@ def test_cases():
 if __name__ == "__main__":
     #test_cases()
     company_directory()
+
+
+
+"""
+At the bottom of your file or in a separate .txt file, include a short reflection (200–300 words) that answers the following questions:
+
+    How did recursive insertion work?
+    What challenges did you face when finding the right spot for a new employee?
+    When might trees be preferable to other data structures in real-world systems?
+
+    The recursive insertion works by first checking if the root node is the target to be inserted below, and either inserting the new employee or printing an error message if the side was already occupied. It then tried to recursively insert at the root nodes children, starting with the left child. If one of those children are the insertion target, the process ends after either a successful insertion or printing an error message if the target side is occupied. If neither of the children are the target, then they try and recursively insert at their own children. This repeats for all descendants of the root until the insertion target is found and the correct action is taken. If all the descendants of the root node fail to insert, then that means the target does not exist in the tree and an error message is printed.
+    The search order looks like this.
+                    1
+                /       \
+                2       5
+              /   \   /   \
+              3   4   6   7
+
+    The challenge in finding the right spot for a new employee was more of a conceptual challenge than an implementation challenge. The main challenge was mentally working through the process of recursively calling insert() and how to use return statements to terminate the insertion process once it had succeeded at some descendant node.
+
+
+    Trees are better than other data structures when the real world information that is being stored naturally has a hierarchical structure. This would most obviously apply to situations like the one in this assignment, where there is an organization that has a clear and unambiguous hierarchy of its employees. They can also be useful when storing things that can be divided by their characteristics. E.g. books can be divided by fiction/non-fiction, genre, sub-genre, etc., a list of cars can be divided by manufacturer, type, model, year/decade of production, condition, etc.. While other data structures such as dictionaries could be used to store this information per object, there are many situations where only a certain category of objects are considered (e.g. pickup trucks made by Ford from the 2010s) and trees can ignore all the objects on other branches in these situations. Trees are mainly limited if objects have neither natural hierarchy or many mutually exclusive characteristics to organize themselves by.
+    
+"""
